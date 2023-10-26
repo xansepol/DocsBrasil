@@ -1,4 +1,6 @@
-﻿using DocsBrasil.Helpers.Veiculo;
+﻿using DocsBrasil.Enums;
+using DocsBrasil.Helpers.Pessoa;
+using DocsBrasil.Helpers.Veiculo;
 namespace DocsBrasil.Fakes
 {
     public static class Gerador
@@ -46,9 +48,22 @@ namespace DocsBrasil.Fakes
             return Enumerable.Range(1, quantidade).Select((i) => Renavam()).ToArray();
         }
 
-        public static string Cpf()
+        public static string Cpf() => CpfHelper.Generate(UnidadesFederativas.NI);
+        public static string Cpf(UnidadesFederativas uf) => CpfHelper.Generate(uf);
+        public static string[] Cpfs(int quantidade)
         {
-            return "";
+            if (quantidade <= 0)
+                return Enumerable.Empty<string>().ToArray();
+
+            return Enumerable.Range(1, quantidade).Select((i) => Cpf()).ToArray();
+        }
+
+        public static string[] Cpfs(int quantidade, UnidadesFederativas uf)
+        {
+            if (quantidade <= 0)
+                return Enumerable.Empty<string>().ToArray();
+
+            return Enumerable.Range(1, quantidade).Select((i) => Cpf(uf)).ToArray();
         }
 
         public static string Cnpj() {
