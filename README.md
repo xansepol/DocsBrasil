@@ -21,10 +21,9 @@ O método retornará um valor do tipo ``bool``.
 
 ```C#
 string cpf = "01234567890";
-if(cpf.IsCpf())
+if(cpf.IsCpf()){
     // CPF válido
-else
-    // CPF inválido
+}
 ```
 
 ## Gerando Documentos
