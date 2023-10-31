@@ -14,7 +14,8 @@ Importe o seguinte namespace
 using DocsBrasil.Extensions;
 ```
 
-Para validar o documento, basta ter o valor em uma variável do tipo ``string`` e em seguida chamar o método de validação correspondente ao documento, que o método retornará um valor do tipo ``bool``.
+Para validar o documento, basta ter o valor em uma variável do tipo ``string`` e em seguida chamar o método de validação correspondente ao documento.
+O método retornará um valor do tipo ``bool``.
 
 #### Exemplo
 
