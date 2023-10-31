@@ -35,9 +35,14 @@ using DocsBrasil.Fakes;
 
 Para gerar o documento, chame a classe ``Gerador`` e posteriormete a função do documento que deseja gerar.
 
-#### Exemplo
+#### Exemplos
 
+Único documento
 ```C#
 string cpf = Gerador.Cpf();
+```
+
+Array de documento
+```C#
 string[] cpfs = Gerador.Cpfs(100);
 ```
