@@ -5,53 +5,60 @@ namespace DocsBrasil.Test
     public class PlacaValidTest
     {
         [TestMethod]
-        public void PlacaIsValid()
+        [DataRow("ABC1234")]
+        [DataRow("ABC-1234")]
+        [DataRow("ABC1C34")]
+        [DataRow("ABC-1C34")]
+        public void PlacaIsValid(string placa)
         {
-            Assert.IsTrue("ABC1234".IsPlaca());
-            Assert.IsTrue("ABC-1234".IsPlaca());
-            Assert.IsTrue("ABC1C34".IsPlaca());
-            Assert.IsTrue("ABC-1C34".IsPlaca());
+            Assert.IsTrue(placa.IsPlaca());
         }
 
         [TestMethod]
-        public void PlacaIsNotValid()
+        [DataRow("ABCE000")]
+        [DataRow("ABC-E000")]
+        [DataRow("AB0E000")]
+        [DataRow("ABB0Z00")]
+        [DataRow("")]
+        public void PlacaIsNotValid(string placa)
         {
-            Assert.IsFalse("ABCE000".IsPlaca());
-            Assert.IsFalse("ABC-E000".IsPlaca());
-            Assert.IsFalse("AB0E000".IsPlaca());
-            Assert.IsFalse("ABB0Z00".IsPlaca());
+            Assert.IsFalse(placa.IsPlaca());
         }
 
         [TestMethod]
-        public void PlacaMercosulIsValid()
+        [DataRow("ABC1C34")]
+        [DataRow("ABC-1C34")]
+        public void PlacaMercosulIsValid(string placa)
         {
-            Assert.IsTrue("ABC1C34".IsPlacaMercosul());
-            Assert.IsTrue("ABC-1C34".IsPlacaMercosul());
+            Assert.IsTrue(placa.IsPlacaMercosul());
         }
 
         [TestMethod]
-        public void PlacaMercosulIsNotValid()
+        [DataRow("ABC1234")]
+        [DataRow("ABC-1234")]
+        [DataRow("ABC1K34")]
+        [DataRow("ABC-1K34")]
+        public void PlacaMercosulIsNotValid(string placa)
         {
-            Assert.IsFalse("ABC1234".IsPlacaMercosul());
-            Assert.IsFalse("ABC-1234".IsPlacaMercosul());
-            Assert.IsFalse("ABC1K34".IsPlacaMercosul());
-            Assert.IsFalse("ABC-1K34".IsPlacaMercosul());
+            Assert.IsFalse(placa.IsPlacaMercosul());
         }
 
         [TestMethod]
-        public void PlacaCinzalIsValid()
+        [DataRow("ABC1234")]
+        [DataRow("ABC-1234")]
+        public void PlacaCinzalIsValid(string placa)
         {
-            Assert.IsTrue("ABC1234".IsPlacaCinza());
-            Assert.IsTrue("ABC-1234".IsPlacaCinza());
+            Assert.IsTrue(placa.IsPlacaCinza());
         }
 
         [TestMethod]
-        public void PlacaCinzaIsNotValid()
+        [DataRow("ABC1C34")]
+        [DataRow("ABC-1C34")]
+        [DataRow("A8C1034")]
+        [DataRow("AA-1134")]
+        public void PlacaCinzaIsNotValid(string placa)
         {
-            Assert.IsFalse("ABC1C34".IsPlacaCinza());
-            Assert.IsFalse("ABC-1C34".IsPlacaCinza());
-            Assert.IsFalse("A8C1034".IsPlacaCinza());
-            Assert.IsFalse("AA-1134".IsPlacaCinza());
+            Assert.IsFalse(placa.IsPlacaCinza());
         }
     }
 }

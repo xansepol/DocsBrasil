@@ -10,6 +10,6 @@ namespace DocsBrasil.Extensions
         public static bool IsPlacaCinza(this string placa) => PlateHelper.CheckGray(placa);
         public static bool IsRenavam(this string renavam) => RenavamHelper.Check(renavam);
         public static bool IsCpf(this string cpf) => CpfHelper.Check(cpf);
-        public static bool IsCnpj(this string cnpj) => true;
+        public static bool IsCnpj(this string cnpj) => CnpjHelper.Check(cnpj);
     }
 }

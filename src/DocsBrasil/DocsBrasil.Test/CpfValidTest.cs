@@ -11,25 +11,27 @@ namespace DocsBrasil.Test
     public class CpfValidTest
     {
         [TestMethod]
-        public void CpfIsValid()
+        [DataRow("693.903.120-00")]
+        [DataRow("65808900026")]
+        [DataRow("955897246")]
+        [DataRow("503335612-79")]
+        public void CpfIsValid(string cpf)
         {
-            Assert.IsTrue("693.903.120-00".IsCpf());
-            Assert.IsTrue("65808900026".IsCpf());
-            Assert.IsTrue("955897246".IsCpf());
-            Assert.IsTrue("503335612-79".IsCpf());
+            Assert.IsTrue(cpf.IsCpf());
         }
 
         [TestMethod]
-        public void CpfIsNotValid()
+        [DataRow("693.903.120-01")]
+        [DataRow("065808900026")]
+        [DataRow("322 852 022-61")]
+        [DataRow("955897216")]
+        [DataRow("503335612-09")]
+        [DataRow("")]
+        [DataRow("00000000000")]
+        [DataRow("55555555555")]
+        public void CpfIsNotValid(string cpf)
         {
-            Assert.IsFalse("693.903.120-01".IsCpf());
-            Assert.IsFalse("065808900026".IsCpf());
-            Assert.IsFalse("322 852 022-61".IsCpf());
-            Assert.IsFalse("955897216".IsCpf());
-            Assert.IsFalse("503335612-09".IsCpf());
-            Assert.IsFalse("".IsCpf());
-            Assert.IsFalse("00000000000".IsCpf());
-            Assert.IsFalse("55555555555".IsCpf());
+            Assert.IsFalse(cpf.IsCpf());
         }
     }
 }

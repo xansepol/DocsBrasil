@@ -66,8 +66,14 @@ namespace DocsBrasil.Fakes
             return Enumerable.Range(1, quantidade).Select((i) => Cpf(uf)).ToArray();
         }
 
-        public static string Cnpj() {
-            return "";
+        public static string Cnpj(int sequencia = 1) => CnpjHelper.Generate(sequencia);
+
+        public static string[] Cnpjs(int quantidade, int sequencia = 1)
+        {
+            if (quantidade <= 0)
+                return Enumerable.Empty<string>().ToArray();
+
+            return Enumerable.Range(1, quantidade).Select((i) => Cnpj(sequencia)).ToArray();
         }
     }
 }

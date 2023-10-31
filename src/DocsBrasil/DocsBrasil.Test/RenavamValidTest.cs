@@ -6,19 +6,21 @@ namespace DocsBrasil.Test
     public class RenavamValidTest
     {
         [TestMethod]
-        public void RenavamIsValid()
+        [DataRow("00923200070")]
+        [DataRow("693829516")]
+        [DataRow("331410389")]
+        public void RenavamIsValid(string renavam)
         {
-            Assert.IsTrue("00923200070".IsRenavam());
-            Assert.IsTrue("693829516".IsRenavam());
-            Assert.IsTrue("331410389".IsRenavam());
+            Assert.IsTrue(renavam.IsRenavam());
         }
 
         [TestMethod]
-        public void RenavamIsNotValid()
+        [DataRow("01923200070")]
+        [DataRow("000693829516")]
+        [DataRow("033141O389")]
+        public void RenavamIsNotValid(string renavam)
         {
-            Assert.IsFalse("01923200070".IsRenavam());
-            Assert.IsFalse("000693829516".IsRenavam());
-            Assert.IsFalse("033141O389".IsRenavam());
+            Assert.IsFalse(renavam.IsRenavam());;
         }
     }
 }
