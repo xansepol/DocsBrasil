@@ -1,9 +1,41 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ApplicationIcon>_0f6de82a-c28f-4690-9a39-1759e1d9319c.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>DocsBrasil - Validação de Documentos Brasileiros</Title>
+    <Authors>Alexandre.Lopes</Authors>
+    <Description>DocsBrasil é uma biblioteca para validar e gerar documentos brasileiros</Description>
+    <PackageProjectUrl>https://github.com/xansepol/DocsBrasil</PackageProjectUrl>
+    <PackageIcon>_0f6de82a-c28f-4690-9a39-1759e1d9319c-small.jpg</PackageIcon>
+    <RepositoryUrl>https://github.com/xansepol/DocsBrasil</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Documentos;Validação;Gerar Documentos;Placa Veicular;Renavam;CPF;CNPJ</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="_0f6de82a-c28f-4690-9a39-1759e1d9319c.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Users\Alexandre\Downloads\_0f6de82a-c28f-4690-9a39-1759e1d9319c-small.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

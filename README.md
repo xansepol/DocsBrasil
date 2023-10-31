@@ -7,6 +7,12 @@ DocsBrasil é uma biblioteca .Net para validar e gerar alguns documentos brasile
 - Renavam
 - Placa
 
+## Instalação
+
+```
+dotnet add package DocsBrasil
+```
+
 ## Validando Documentos
 Importe o seguinte namespace
 
