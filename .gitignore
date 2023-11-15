@@ -12,6 +12,7 @@
 
 #Aplicações de teste
 DocsBrasil.Console/
+DocsBrasil.Benchmark/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

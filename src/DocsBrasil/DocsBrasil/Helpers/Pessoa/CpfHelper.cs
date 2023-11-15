@@ -1,4 +1,5 @@
 ﻿using DocsBrasil.Enums;
+using DocsBrasil.Utilities;
 using System.Text.RegularExpressions;
 
 namespace DocsBrasil.Helpers.Pessoa
@@ -15,7 +16,7 @@ namespace DocsBrasil.Helpers.Pessoa
             if (!Regex.IsMatch(cpf, "^[\\d\\.-]+$"))
                 return false;
 
-            cpf = Regex.Replace(cpf, "\\D", "");
+            cpf = RegexValidation.ClearNonNumber(cpf);
             cpf = cpf.PadLeft(11, '0');
             if (cpf.Length > 11)
                 return false;
@@ -27,7 +28,7 @@ namespace DocsBrasil.Helpers.Pessoa
             return cpf.EndsWith(GetDigistosVerificadores(tempCpf));
         }
 
-        internal static string Generate(UnidadesFederativas uf)
+        internal static string Generate(UnidadesFederativas uf, bool format)
         {
             int[] numbers = { };
             if (uf == UnidadesFederativas.NI)
@@ -44,9 +45,10 @@ namespace DocsBrasil.Helpers.Pessoa
             foreach (int n in numbers)
                 charsCpf.AddRange(n.ToString());
 
-            string cpf = new string(charsCpf.ToArray());
+            string partialCpf = new string(charsCpf.ToArray());
+            string cpf = $"{partialCpf}{GetDigistosVerificadores(partialCpf)}";
 
-            return $"{cpf}{GetDigistosVerificadores(cpf)}";
+            return format ? Format(cpf) : cpf;
         }
 
         private static string GetDigistosVerificadores(string cpf)
@@ -80,6 +82,19 @@ namespace DocsBrasil.Helpers.Pessoa
 
             digito = digito + resto.ToString();
             return digito;
+        }
+
+        internal static string Format(string cpf)
+        {
+            cpf = RegexValidation.ClearNonNumber(cpf);
+            if (string.IsNullOrWhiteSpace(cpf))
+                return String.Empty;
+
+            cpf = cpf.PadLeft(11, '0');
+            if (cpf.Length > 11)
+                return cpf;
+
+            return cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
         }
 
         internal static int GetNumberByUF(UnidadesFederativas uf)

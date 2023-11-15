@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using DocsBrasil.Utilities;
+using System.Text.RegularExpressions;
 
 namespace DocsBrasil.Helpers.Pessoa
 {
@@ -14,7 +15,7 @@ namespace DocsBrasil.Helpers.Pessoa
             if (!Regex.IsMatch(cnpj, "^[\\d\\./-]+$"))
                 return false;
 
-            cnpj = Regex.Replace(cnpj, "\\D", "");
+            cnpj = RegexValidation.ClearNonNumber(cnpj);
             cnpj = cnpj.PadLeft(14, '0');
             if (cnpj.Length > 14)
                 return false;
@@ -54,7 +55,7 @@ namespace DocsBrasil.Helpers.Pessoa
          return digito + resto.ToString();
         }
 
-        internal static string Generate(int sequence)
+        internal static string Generate(int sequence, bool format)
         {
             if (sequence <= 0 || sequence > 9999)
                 new ArgumentException("Número da sequência inválido");
@@ -73,9 +74,24 @@ namespace DocsBrasil.Helpers.Pessoa
             foreach (int n in numbers)
                 charsCnpj.AddRange(n.ToString());
 
-            string cnpj = new string(charsCnpj.ToArray());
+            string partialCnpj = new string(charsCnpj.ToArray());
+            string cnpj = $"{partialCnpj}{GetDigitoVerificadores(partialCnpj)}";
 
-            return $"{cnpj}{GetDigitoVerificadores(cnpj)}";
+            return format ? Format(cnpj) : cnpj;
+        }
+
+        internal static string Format(string cnpj)
+        {
+            cnpj = RegexValidation.ClearNonNumber(cnpj);
+            if (string.IsNullOrWhiteSpace(cnpj))
+                return String.Empty;
+
+            cnpj = cnpj.PadLeft(14, '0');
+
+            if (cnpj.Length > 14)
+                return cnpj;
+
+            return cnpj.Insert(2, ".").Insert(6, ".").Insert(10, "/").Insert(15, "-");
         }
     }
 }

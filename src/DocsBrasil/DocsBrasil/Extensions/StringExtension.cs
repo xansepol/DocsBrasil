@@ -11,5 +11,9 @@ namespace DocsBrasil.Extensions
         public static bool IsRenavam(this string renavam) => RenavamHelper.Check(renavam);
         public static bool IsCpf(this string cpf) => CpfHelper.Check(cpf);
         public static bool IsCnpj(this string cnpj) => CnpjHelper.Check(cnpj);
+
+        public static string FormatPlaca(this string placa) => PlateHelper.Format(placa);
+        public static string FormatCnpj(this string cnpj) => CnpjHelper.Format(cnpj);
+        public static string FormatCpf(this string cpf) => CpfHelper.Format(cpf);
     }
 }
