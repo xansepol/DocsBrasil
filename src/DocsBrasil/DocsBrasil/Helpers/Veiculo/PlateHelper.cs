@@ -1,30 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using DocsBrasil.Utilities;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace DocsBrasil.Helpers.Veiculo
 {
     internal static class PlateHelper
     {
-        internal static bool Check(string plate)
-        {
-            return Regex.IsMatch(plate, @"^[A-Z]{3}-?\d[\dA-J]\d{2}$", RegexOptions.IgnoreCase);
-        }
+        internal static bool Check(string plate) => RegexValidation.CheckPlate(plate);
 
-        internal static bool CheckMercosul(string plate)
-        {
-            return Regex.IsMatch(plate, @"^[A-Z]{3}-?\d[A-J]\d{2}$", RegexOptions.IgnoreCase);
-        }
+        internal static bool CheckMercosul(string plate) => RegexValidation.CheckMercosulPlate(plate);
 
-        internal static bool CheckGray(string plate)
-        {
-            return Regex.IsMatch(plate, @"^[A-Z]{3}-?\d{4}$", RegexOptions.IgnoreCase);
-        }
+        internal static bool CheckGray(string plate) => RegexValidation.CheckGrayPlate(plate);
 
-        internal static string Generate(bool mercosul = false)
+        internal static string Generate(bool format, bool mercosul)
         {
             Random r = new Random();
             char[] charsPlate =
@@ -37,7 +24,18 @@ namespace DocsBrasil.Helpers.Veiculo
                 Convert.ToChar(r.Next(48, 58)),
                 Convert.ToChar(r.Next(48, 58))
             };
-            return new string(charsPlate);
+            return format ? Format(new string(charsPlate)) : new string(charsPlate);
+        }
+
+        internal static string Format(string plate)
+        {
+            if (string.IsNullOrWhiteSpace(plate))
+                return String.Empty;
+
+            if (plate.Length != 7)
+                return plate;
+
+            return plate.Insert(3, "-");
         }
     }
 }

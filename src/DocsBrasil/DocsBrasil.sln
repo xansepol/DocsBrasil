@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsBrasil", "DocsBrasil\Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsBrasil.Console", "DocsBrasil.Console\DocsBrasil.Console.csproj", "{4E3C03B9-BDD0-41A6-803B-19E5DF539463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsBrasil.Test", "DocsBrasil.Test\DocsBrasil.Test.csproj", "{2452B50F-0D27-4F9D-A783-832787DE38DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsBrasil.Test", "DocsBrasil.Test\DocsBrasil.Test.csproj", "{2452B50F-0D27-4F9D-A783-832787DE38DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsBrasil.Benchmark", "DocsBrasil.Benchmark\DocsBrasil.Benchmark.csproj", "{495F7F82-1E42-4B9B-AF9D-C780AD5A32FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2452B50F-0D27-4F9D-A783-832787DE38DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2452B50F-0D27-4F9D-A783-832787DE38DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2452B50F-0D27-4F9D-A783-832787DE38DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495F7F82-1E42-4B9B-AF9D-C780AD5A32FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495F7F82-1E42-4B9B-AF9D-C780AD5A32FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495F7F82-1E42-4B9B-AF9D-C780AD5A32FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495F7F82-1E42-4B9B-AF9D-C780AD5A32FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -48,10 +48,8 @@ namespace DocsBrasil.Helpers.Veiculo
             foreach (int n in numbers)
                 charRenavam.AddRange(n.ToString());
 
-            string renavam = new string(charRenavam.ToArray());
-            
-            return $"{renavam}{GetDigitoVerificador(renavam)}";
+            string partialRenavam = new string(charRenavam.ToArray());
+            return $"{partialRenavam}{GetDigitoVerificador(partialRenavam)}";
         }
-
     }
 }
