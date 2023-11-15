@@ -1,5 +1,5 @@
 # DocsBrasil
-DocsBrasil é uma biblioteca .Net para validar e gerar alguns documentos brasileiros
+DocsBrasil é uma biblioteca .Net para validar, gerar e formatar alguns documentos brasileiros
 
 ## Documentos Suportados
 - CPF
