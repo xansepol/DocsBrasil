@@ -6,6 +6,7 @@ DocsBrasil é uma biblioteca .Net para validar, gerar e formatar alguns document
 - CNPJ
 - Renavam
 - Placa
+- UF
 
 ## Instalação
 
